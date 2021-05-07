@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_200345) do
   end
 
   create_table "targets", force: :cascade do |t|
-    t.integer "engagment_id"
+    t.integer "engagement_id"
     t.string "ipaddress"
     t.string "hostname"
     t.string "sysinfo"

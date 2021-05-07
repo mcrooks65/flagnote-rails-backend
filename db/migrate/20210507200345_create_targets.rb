@@ -1,7 +1,7 @@
 class CreateTargets < ActiveRecord::Migration[6.0]
   def change
     create_table :targets do |t|
-      t.integer :engagment_id
+      t.integer :engagement_id
       t.string :ipaddress
       t.string :hostname
       t.string :sysinfo

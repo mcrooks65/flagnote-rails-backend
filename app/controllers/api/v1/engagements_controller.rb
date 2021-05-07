@@ -1,2 +1,2 @@
-class Apiu::V1::EngagementsController < ApplicationController
+class Api::V1::EngagementsController < ApplicationController
 end
