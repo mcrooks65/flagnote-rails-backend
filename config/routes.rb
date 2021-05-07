@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :targets
-  resources :engagements
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :targets
+      resources :engagements
+    end
+  end
 end
