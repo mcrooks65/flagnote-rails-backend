@@ -1,13 +1,13 @@
 class Api::V1::EngagementsController < ApplicationController
     def index
         @engagements = Engagement.all
-        render json: @engagements
+        render json: EngagementSerializer.new(@engagements)
     end
 
     def create
         @engagement = Engagement.new(engagement_params)
         if @engagement.save
-            render json: @engagement
+            render json: EngagementSerializer.new(@engagement)
         else
             render json: {error: 'Error creating engagement!!11one'}
         end
@@ -15,7 +15,7 @@ class Api::V1::EngagementsController < ApplicationController
 
     def show
         @engagement = Engagement.find(params[:id])
-        render json: @engagement
+        render json: EngagementSerializer.new(@engagement)
     end
 
     def destroy
