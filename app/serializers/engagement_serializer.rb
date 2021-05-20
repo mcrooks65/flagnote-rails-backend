@@ -1,4 +1,4 @@
 class EngagementSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :status, :targets
+  attributes :name, :status, :id, :targets
 end
