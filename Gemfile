@@ -41,4 +41,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Adding in fast_json api serializer
-gem 'fast_jsonapi'
+gem 'jsonapi-serializer'
