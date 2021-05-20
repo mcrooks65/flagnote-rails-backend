@@ -28,3 +28,4 @@ target2 = Target.create(
     loot: "admin:password123", 
     status: "Rooted"
 )
+target3 = Target.create(engagement_id: 1, ipaddress: "42.42.42.42", hostname: "VulnCityCTF.com", sysinfo: "Requires Enumeration!", vulns: "None found yet, keep enumerating!", log: "Log activities and enter notes here.", loot: "Flags, Credentials, Hashes go here.", status: "Vacant")
