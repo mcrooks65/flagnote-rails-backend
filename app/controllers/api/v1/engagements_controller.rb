@@ -1,7 +1,14 @@
 class Api::V1::EngagementsController < ApplicationController
     def index
+        
         @engagements = Engagement.all
-        render json: EngagementSerializer.new(@engagements)
+        
+        data = EngagementSerializer.new(@engagements).serializable_hash[:data].map do |h|
+         h[:attributes]
+        end
+        
+        render json: data
+        
     end
 
     def create
