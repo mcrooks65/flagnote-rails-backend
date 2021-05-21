@@ -14,7 +14,7 @@ class Api::V1::EngagementsController < ApplicationController
     def create
         @engagement = Engagement.new(engagement_params)
         if @engagement.save
-            render json: EngagementSerializer.new(@engagement)
+            render json: @engagement
         else
             render json: {error: 'Error creating engagement!!11one'}
         end
