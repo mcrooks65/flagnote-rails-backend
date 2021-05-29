@@ -22,7 +22,8 @@ class Api::V1::EngagementsController < ApplicationController
 
     def show
         @engagement = Engagement.find(params[:id])
-        render json: EngagementSerializer.new(@engagement)
+        render json: EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes]
+           
     end
 
     def destroy
