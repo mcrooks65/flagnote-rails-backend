@@ -1,6 +1,6 @@
 class Api::V1::TargetsController < ApplicationController
 
-    before_action :set_engagement
+    before_action :set_engagement, :set_targets
 
     def index
         @targets = Target.all
@@ -10,7 +10,7 @@ class Api::V1::TargetsController < ApplicationController
     def create
         @target = @engagement.targets.new(target_params)
         if @target.save
-            render json: @engagement
+            render json:EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes] 
         else
             render json: {error: 'Error creating target!!11one'}
         end
@@ -32,6 +32,9 @@ class Api::V1::TargetsController < ApplicationController
         @engagement = Engagement.find(params[:engagement_id])
     end
 
+    def set_targets
+        @targets = @engagement.targets
+    end
 
     def target_params
         params.require(:target).permit(:engagement_id, :ipaddress, :hostname, :sysinfo, :vulns, :log, :loot, :status)
