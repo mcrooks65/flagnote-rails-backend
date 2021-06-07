@@ -24,6 +24,7 @@ class Api::V1::TargetsController < ApplicationController
     def destroy
         @target = Target.find(params[:id])
         @target.destroy
+        render json:EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes] 
     end
 
     private
