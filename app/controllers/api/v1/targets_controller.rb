@@ -10,7 +10,7 @@ class Api::V1::TargetsController < ApplicationController
     def create
         @target = @engagement.targets.new(target_params)
         if @target.save
-            render json:EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes] 
+            render json: EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes] 
         else
             render json: {error: 'Error creating target!!11one'}
         end
@@ -24,7 +24,15 @@ class Api::V1::TargetsController < ApplicationController
     def destroy
         @target = Target.find(params[:id])
         @target.destroy
-        render json:EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes] 
+        render json: EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes] 
+    end
+
+    def update
+        @target = Target.find(params[:id])
+        
+        @target.update(target_params)
+        @target.save
+        render json: EngagementSerializer.new(@engagement).serializable_hash[:data][:attributes]
     end
 
     private
